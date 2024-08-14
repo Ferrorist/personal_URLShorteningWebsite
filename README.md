@@ -22,3 +22,8 @@
 | Chore | 빌드 업무 수정, 패키지 매니저 수정 |
 | Rename | 파일 혹은 폴더명 수정 |
 | Remove | 파일 삭제 |
+
+
+## 개발 일기
+ * [DAY 01](./Docs/record/20240807.md)
+ * [DAY 02](./Docs/record/20240814.md)
