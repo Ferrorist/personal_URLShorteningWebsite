@@ -1,7 +1,5 @@
 package pdm.urlshorteningback.config;
 
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
 import org.springframework.context.annotation.Configuration;
@@ -9,18 +7,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Base56Config {
 
-	private static final String BASE56_CHARS = "23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz";
-	private static final int length = 8;
+	private final String BASE56 = "23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz";
+	private final int SHORTEN_KEY_LENGTH = 8;
 
-	public String generateShortenUrlKey(){
+	public String createShortenKey(String input) {
+		StringBuilder shortenKeyBuilder = new StringBuilder();
 		Random random = new Random();
-		StringBuilder urlkey = new StringBuilder();
 
-		for(int i = 0; i < length; i++){
-			int index = random.nextInt(0, BASE56_CHARS.length());
-			urlkey.append(BASE56_CHARS.charAt(index));
+		for(int i = 0; i < SHORTEN_KEY_LENGTH; i++){
+			int index = random.nextInt(BASE56.length());
+			shortenKeyBuilder.append(BASE56.charAt(index));
 		}
 
-		return urlkey.toString();
+		return shortenKeyBuilder.toString();
 	}
 }
